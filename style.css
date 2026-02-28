@@ -1,0 +1,62 @@
+body {
+  background: #0f172a;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+#login, #chat {
+  width: 320px;
+  margin: 50px auto;
+}
+
+input, button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+.hint {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* 🔵 ВЕРИФИЦИРОВАННАЯ ГАЛОЧКА */
+.badge {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+  background: #1d9bf0;
+  border-radius: 50%;
+  position: relative;
+  top: 2px;
+}
+
+.badge::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  width: 6px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
