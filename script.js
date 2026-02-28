@@ -8,15 +8,39 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+const OFFICIAL_NAME = "мирон";
+const OFFICIAL_PASSWORD = "12345"; // ← поменяй пароль
+
 let username = "";
 let verified = false;
 
-function login() {
-  const name = document.getElementById("loginName").value.trim();
-  if (!name) return alert("Введите ник");
+// показать поле пароля если ник Мирон
+document.getElementById("loginName").addEventListener("input", (e) => {
+  const pass = document.getElementById("password");
+  if (e.target.value.trim().toLowerCase() === OFFICIAL_NAME) {
+    pass.style.display = "block";
+  } else {
+    pass.style.display = "none";
+    pass.value = "";
+  }
+});
 
-  username = name;
-  verified = username.toLowerCase() === "pypik";
+function login() {
+  const nameInput = document.getElementById("loginName").value.trim();
+  const passInput = document.getElementById("password").value;
+
+  if (!nameInput) return alert("Введите ник");
+
+  username = nameInput;
+  verified = false;
+
+  if (username.toLowerCase() === OFFICIAL_NAME) {
+    if (passInput !== OFFICIAL_PASSWORD) {
+      alert("Неверный пароль для аккаунта Мирон");
+      return;
+    }
+    verified = true;
+  }
 
   document.getElementById("login").style.display = "none";
   document.getElementById("chat").style.display = "block";
